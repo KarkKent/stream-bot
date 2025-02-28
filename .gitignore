@@ -1,0 +1,18 @@
+# Игнорируем файлы сборки Maven
+target/
+*.class
+*.jar
+*.war
+
+# Игнорируем настройки Eclipse
+/.settings/
+/.project
+/.classpath
+
+# Игнорируем временные файлы
+*.log
+*.tmp
+
+# Игнорируем файлы конфигурации с паролями и API-ключами
+application.properties
+application.yml
