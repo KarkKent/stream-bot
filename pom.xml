@@ -3,17 +3,23 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId> io.github.karkkent</groupId>
+  <groupId>io.github.karkkent</groupId>
   <artifactId>stream-bot</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>stream-bot</name>
  <description>Telegram bot for stream announcements</description>
 
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.2</version> <!-- Последняя версия Spring Boot -->
+    <relativePath/> <!-- Указывает, что зависимости будут скачиваться из Maven Central -->
+</parent>
+
 <properties>
-        <java.version>17</java.version>
-        <spring.boot.version>3.1.0</spring.boot.version>
-    </properties>
+    <java.version>22</java.version> <!-- Или 22, если используешь -->
+</properties>
 
  <dependencies>
         <!-- Spring Boot Starter -->
@@ -21,6 +27,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        
+        <dependency>
+   		 <groupId>org.glassfish.jaxb</groupId>
+   			 <artifactId>jaxb-runtime</artifactId>
+   			 <version>4.0.4</version> <!-- Последняя версия -->
+		</dependency>
 
         <!-- Spring Boot DevTools -->
         <dependency>
@@ -56,19 +68,15 @@
   		  <artifactId>postgresql</artifactId>
   		  <scope>runtime</scope>
 		</dependency>
+		
+		
+		<dependency>
+ 		   <groupId>javax.xml.bind</groupId>
+  		  <artifactId>jaxb-api</artifactId>
+ 		   <version>2.3.1</version>
+		</dependency>
     </dependencies>
     
-        <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
